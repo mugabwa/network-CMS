@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <!-- {{ form|crispy }} -->
+            <div class="form-group">
+                <label>Full Name </label>
+                {{ form.full_name }}
+            </div>
+            <div class="form-group">
+                <label>Email </label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label>Location </label>
+                {{ form.location }}
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                {{ form.phone }}
+            </div>
+            <div class="form-group">
+                <label>User Type</label>
+                <select name="is_staff">
+                    <option value="False">Customer</option>
+                    <option value="True">Administrator</option>
+                </select>
+                <input type="hidden" name="password1" value={{pwd}}>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add User</button>
+            </div>
+        </form>
+    </div>
+{% endblock page_content %}

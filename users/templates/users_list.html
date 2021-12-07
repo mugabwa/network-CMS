@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+    {% for user in c_users %}
+        <p>{{user}}</p>
+    {% endfor %}
+{% endblock %}
